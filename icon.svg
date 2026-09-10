@@ -1,11 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <rect width="512" height="512" rx="80" fill="#0d1117"/>
-  <!-- Cloud shape -->
-  <ellipse cx="256" cy="310" rx="170" ry="85" fill="none" stroke="#38bdf8" stroke-width="18"/>
-  <ellipse cx="300" cy="245" rx="110" ry="85" fill="none" stroke="#38bdf8" stroke-width="18"/>
-  <ellipse cx="195" cy="270" rx="90" ry="72" fill="none" stroke="#38bdf8" stroke-width="18"/>
-  <!-- Lightning bolt -->
-  <polyline points="256,230 230,285 258,285 235,350" fill="none" stroke="#fbbf24" stroke-width="18" stroke-linejoin="round" stroke-linecap="round"/>
-  <!-- Stars -->
-  <text x="350" y="200" font-size="50" text-anchor="middle">⭐</text>
+  <defs>
+    <linearGradient id="cloudGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="100" fill="#090d16"/>
+  <rect width="512" height="512" rx="100" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="8"/>
+  <!-- Cloud Outline -->
+  <path d="M 160,340 A 60,60 0 0,1 140,225 A 80,80 0 0,1 280,170 A 90,90 0 0,1 390,240 A 55,55 0 0,1 370,340 Z" fill="none" stroke="url(#cloudGrad)" stroke-width="24" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- Server Node Dots & Connection Lines -->
+  <line x1="210" y1="340" x2="210" y2="390" stroke="#06b6d4" stroke-width="12" stroke-linecap="round"/>
+  <line x1="302" y1="340" x2="302" y2="390" stroke="#6366f1" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="210" cy="390" r="14" fill="#06b6d4"/>
+  <circle cx="302" cy="390" r="14" fill="#6366f1"/>
 </svg>

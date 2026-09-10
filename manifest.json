@@ -1,14 +1,14 @@
 {
-  "name": "CloudQuest",
-  "short_name": "CloudQuest",
-  "description": "Your interactive cloud computing learning roadmap — from zero to job-ready!",
+  "name": "Cloud Architecture Roadmap",
+  "short_name": "CloudOps",
+  "description": "Enterprise cloud computing learning curriculum — from systems fundamentals to multi-cloud architecture.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#0e0916",
-  "theme_color": "#120c1d",
+  "background_color": "#090d16",
+  "theme_color": "#111827",
   "orientation": "portrait-primary",
-  "categories": ["education", "productivity"],
+  "categories": ["education", "productivity", "developer tools"],
   "icons": [
     {
       "src": "icon.svg",
