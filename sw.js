@@ -1,10 +1,11 @@
-const CACHE_NAME = 'cloudquest-v2';
+const CACHE_NAME = 'cloudquest-v3';
 const CACHE_ASSETS = [
   './',
   './index.html',
   './style.css',
   './app.js',
   './manifest.json',
+  './icon.svg'
 ];
 
 self.addEventListener('install', (e) => {
