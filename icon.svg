@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="80" fill="#0d1117"/>
+  <!-- Cloud shape -->
+  <ellipse cx="256" cy="310" rx="170" ry="85" fill="none" stroke="#38bdf8" stroke-width="18"/>
+  <ellipse cx="300" cy="245" rx="110" ry="85" fill="none" stroke="#38bdf8" stroke-width="18"/>
+  <ellipse cx="195" cy="270" rx="90" ry="72" fill="none" stroke="#38bdf8" stroke-width="18"/>
+  <!-- Lightning bolt -->
+  <polyline points="256,230 230,285 258,285 235,350" fill="none" stroke="#fbbf24" stroke-width="18" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- Stars -->
+  <text x="350" y="200" font-size="50" text-anchor="middle">⭐</text>
+</svg>
