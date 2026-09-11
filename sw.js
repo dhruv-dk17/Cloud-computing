@@ -1,11 +1,12 @@
-const CACHE_NAME = 'cloudops-v4';
+const CACHE_NAME = 'cloudops-v9';
 const CACHE_ASSETS = [
   './',
   './index.html',
   './style.css',
   './app.js',
   './manifest.json',
-  './icon.svg'
+  './icon.svg',
+  './hero.jpg'
 ];
 
 self.addEventListener('install', (e) => {

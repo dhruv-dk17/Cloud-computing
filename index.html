@@ -1,275 +1,283 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang=en>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cloud Architecture Roadmap | Enterprise Learning Portal</title>
-  <meta name="description" content="Structured cloud computing curriculum from systems fundamentals to multi-cloud architecture. Access curated video masterclasses, hands-on labs, and certification paths." />
-  <meta name="theme-color" content="#111827" />
-  <link rel="manifest" href="manifest.json" />
-  <link rel="icon" href="icon.svg" type="image/svg+xml" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset=UTF-8 />
+  <meta name=viewport content=width=device-width, initial-scale=1.0 />
+  <title>CloudOps Roadmap | Free Cloud Engineering Curriculum</title>
+  <meta name=description content=A complete free roadmap from beginner to cloud architect. Curated video lessons, hands-on labs, progress tracking. />
+  <meta name=theme-color content=#080c14 />
+  <link rel=manifest href=manifest.json />
+  <link rel=icon href=icon.svg type=image/svg+xml />
+  <link rel=preconnect href=https://fonts.googleapis.com />
+  <link rel=preconnect href=https://fonts.gstatic.com crossorigin />
+  <link href=https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap rel=stylesheet />
+  <script src=https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js defer></script>
+  <script src=https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js defer></script>
+  <link rel=stylesheet href=style.css />
 </head>
-<body>
-
-<!-- AMBIENT TECH BACKGROUND -->
-<div class="tech-bg" aria-hidden="true">
-  <div class="glow-orb orb-1"></div>
-  <div class="glow-orb orb-2"></div>
-  <div class="glow-orb orb-3"></div>
-  <div class="grid-overlay"></div>
-</div>
-
-<!-- NAVIGATION BAR -->
-<nav class="navbar" id="navbar">
-  <div class="nav-inner">
-    <a href="#" class="nav-logo">
-      <div class="logo-icon-wrap">
-        <svg class="nav-logo-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M17.5 19.5 20 17l-2.5-2.5"/>
-          <path d="M14 17h6"/>
-          <path d="M6.5 19.5 4 17l2.5-2.5"/>
-          <path d="M4 17h6"/>
-          <path d="M12 4.5v15"/>
-          <path d="M4.5 10.5 12 3l7.5 7.5"/>
-        </svg>
-      </div>
-      <span class="logo-text">CloudOps <span class="logo-accent">Roadmap</span></span>
+<body class="bg-ink text-1">
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
+    <div class="orb orb-c"></div>
+  </div>
+  <div id="sakura-container"></div>
+<nav class=nav id=navbar>
+  <div class=nav-wrap>
+    <a href=# class=brand>
+      <span class=brand-mark>CLOUDOPS</span>
+      <span class=brand-name>Roadmap</span>
     </a>
-
-    <div class="nav-links">
-      <a href="#roadmap" class="nav-item active">Curriculum Path</a>
-      <a href="#analytics" class="nav-item">Analytics</a>
-      <a href="#certifications" class="nav-item">Certifications</a>
+    <div class=nav-center>
+      <a href=#roadmap class=nav-link active>Curriculum</a>
+      <a href=#analytics class=nav-link>Progress</a>
+      <a href=#certifications class=nav-link>Certifications</a>
     </div>
-
-    <div class="nav-sp" id="navSp">
-      <svg class="sp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-      </svg>
-      <span id="spCount">0</span> SP
+    <div class=nav-right>
+      <div class=xp-badge id=navSp>
+        <span class=xp-label>Points</span>
+        <span class=xp-val id=spCount>0</span>
+        <span class=xp-unit>SP</span>
+      </div>
+      <a href=#roadmap class=btn-cta-nav>Start Learning</a>
     </div>
+    <button class=nav-hamburger id=navHamburger aria-label=Menu>
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class=nav-mobile-menu id=navMobileMenu>
+    <a href=#roadmap class=nm-link onclick=closeMobileMenu()>Curriculum</a>
+    <a href=#analytics class=nm-link onclick=closeMobileMenu()>Progress</a>
+    <a href=#certifications class=nm-link onclick=closeMobileMenu()>Certifications</a>
+    <a href=#roadmap class=btn-cta-nav nm-cta onclick=closeMobileMenu()>Start Learning</a>
   </div>
 </nav>
-
-<!-- HERO SECTION -->
-<section class="hero" id="home">
-  <div class="hero-content">
-    <div class="hero-badge">
-      <span class="badge-dot"></span>
-      Enterprise Curriculum · 100% Free · Production-Focused
+<section class=hero id=home>
+  <div class=hero-left>
+    <div class=hero-eyebrow>
+      <span class=eyebrow-dot></span>
+      Ready to continue?
     </div>
-    <h1 class="hero-title">
-      Master <span class="gradient-text">Cloud Architecture</span><br/>
-      & DevOps Engineering
+    <h1 class=hero-h1>
+      Welcome to your<br>
+      <span class=h1-accent>CloudOps Journey</span>
     </h1>
-    <p class="hero-sub">
-      A structured, end-to-end learning path from Linux fundamentals to multi-cloud architecture (AWS, GCP, Azure), IaC, Kubernetes, and Observability. Access curated video masterclasses, hands-on cloud sandboxes, and verified certification pathways.
+    <p class=hero-body>
+      Pick up exactly where you left off. Complete labs, earn skill points, and master cloud infrastructure one step at a time.
     </p>
-    <div class="hero-cta">
-      <a href="#roadmap" class="btn-primary">
-        Explore Curriculum Path
-        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-      <a href="#analytics" class="btn-secondary">
-        View Progress Analytics
-      </a>
+    <div class=hero-actions>
+      <a href=#roadmap class=btn-primary>Resume Learning</a>
+      <a href=#analytics class=btn-ghost>View Dashboard</a>
     </div>
-    <div class="hero-stats">
-      <div class="stat-pill">
-        <svg class="pill-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-        Curated Masterclasses
-      </div>
-      <div class="stat-pill">
-        <svg class="pill-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.5 19.5 20 17l-2.5-2.5M14 17h6M6.5 19.5 4 17l2.5-2.5M4 17h6"/></svg>
-        AWS · GCP · Azure
-      </div>
-      <div class="stat-pill">
-        <svg class="pill-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        Verified Certifications
-      </div>
-      <div class="stat-pill">
-        <svg class="pill-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-        Offline-Ready Application
-      </div>
+  </div>
+  <div class=hero-right>
+    <img src="https://images.unsplash.com/photo-1522383225653-ed111181a951?auto=format&fit=crop&w=1200&q=80" alt="Beautiful glowing cherry blossoms at night" class=hero-img />
+    <div class="float-card float-card-1">
+      <div class=fc-val>21</div>
+      <div class=fc-label>Learning Phases</div>
+    </div>
+    <div class=float-card float-card-2>
+      <div class=fc-val id=floatXP>0</div>
+      <div class=fc-label>Skill Points Earned</div>
     </div>
   </div>
 </section>
-
-<!-- PROGRESS ANALYTICS DASHBOARD -->
-<section class="analytics-section" id="analytics">
-  <div class="section-header">
-    <div class="section-tag">PROGRESS ANALYTICS</div>
-    <h2>Skill Mastery Dashboard</h2>
-    <p>Track lesson completions, module masteries, and verified industry certifications in real time.</p>
-  </div>
-
-  <div class="analytics-grid">
-    <div class="metric-card">
-      <div class="metric-header">
-        <span class="metric-title">Skill Points (SP)</span>
-        <div class="metric-icon-wrap">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        </div>
-      </div>
-      <div class="metric-value" id="totalXP">0</div>
-      <div class="metric-subtitle">Accumulated Skill Points</div>
-    </div>
-
-    <div class="metric-card">
-      <div class="metric-header">
-        <span class="metric-title">Modules Verified</span>
-        <div class="metric-icon-wrap">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-        </div>
-      </div>
-      <div class="metric-value" id="totalStarsCount">0</div>
-      <div class="metric-subtitle">Phase Milestones (/21)</div>
-    </div>
-
-    <div class="metric-card">
-      <div class="metric-header">
-        <span class="metric-title">Lessons Completed</span>
-        <div class="metric-icon-wrap">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-        </div>
-      </div>
-      <div class="metric-value" id="completedCount">0</div>
-      <div class="metric-subtitle">Curriculum Modules Finished</div>
-    </div>
-
-    <div class="metric-card">
-      <div class="metric-header">
-        <span class="metric-title">Certifications Earned</span>
-        <div class="metric-icon-wrap">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
-        </div>
-      </div>
-      <div class="metric-value" id="certCount">0</div>
-      <div class="metric-subtitle">Exams Claimed & Verified</div>
-    </div>
-
-    <div class="metric-card">
-      <div class="metric-header">
-        <span class="metric-title">Study Streak</span>
-        <div class="metric-icon-wrap">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-        </div>
-      </div>
-      <div class="metric-value" id="streakCount">0</div>
-      <div class="metric-subtitle">Consecutive Learning Days</div>
-    </div>
-  </div>
-
-  <div class="overall-progress-card">
-    <div class="op-header">
-      <div class="op-title">Overall Curriculum Completion</div>
-      <div class="op-percentage" id="overallPct">0%</div>
-    </div>
-    <div class="progress-track">
-      <div class="progress-fill" id="overallBar" style="width:0%"></div>
-    </div>
-    <div class="level-status-row">
-      <span class="current-level-tag" id="levelName">Cloud Foundation</span>
-      <span class="next-level-tag" id="nextLevel">Next Milestone: Systems Specialist at 200 SP</span>
-    </div>
-  </div>
-
-  <div class="reset-wrap">
-    <button class="btn-danger-outline" id="resetBtn">
-      <svg class="btn-sm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
-      Reset Progress Data
-    </button>
-  </div>
-</section>
-
-<!-- CURRICULUM ROADMAP PATH -->
-<section class="roadmap-section" id="roadmap">
-  <div class="section-header">
-    <div class="section-tag">CURRICULUM ROADMAP</div>
-    <h2>Cloud Engineering Learning Path</h2>
-    <p>Select any curriculum phase to open video masterclasses, interactive hands-on labs, and module checklists.</p>
-  </div>
-
-  <div class="roadmap-wrapper">
-    <!-- Connecting Timeline Track -->
-    <div class="timeline-track-line" aria-hidden="true"></div>
-
-    <!-- Phase Nodes Container (Populated dynamically by app.js) -->
-    <div class="phase-nodes-grid" id="candyTrailNodes"></div>
-  </div>
-</section>
-
-<!-- PHASE DRAWER / MODAL -->
-<div class="stage-drawer-modal" id="stageDrawerModal" role="dialog" aria-modal="true" aria-label="Curriculum Phase Overview">
-  <div class="stage-drawer-panel">
-    <button class="drawer-close-btn" onclick="closeStageDrawer()" aria-label="Close phase view">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-    </button>
-    <div class="stage-drawer-content" id="stageDrawerContent">
-      <!-- Injected dynamically by app.js -->
-    </div>
+<div class=ticker-wrap aria-hidden=true>
+  <div class=ticker-track>
+    <span class=tick-item>Linux Terminal</span><span class=tick-sep>·</span>
+    <span class=tick-item>Git &amp; GitHub</span><span class=tick-sep>·</span>
+    <span class=tick-item>AWS Core Services</span><span class=tick-sep>·</span>
+    <span class=tick-item>Docker Containers</span><span class=tick-sep>·</span>
+    <span class=tick-item>Kubernetes</span><span class=tick-sep>·</span>
+    <span class=tick-item>Terraform &amp; IaC</span><span class=tick-sep>·</span>
+    <span class=tick-item>CI/CD Pipelines</span><span class=tick-sep>·</span>
+    <span class=tick-item>Azure &amp; GCP</span><span class=tick-sep>·</span>
+    <span class=tick-item>Cloud Security</span><span class=tick-sep>·</span>
+    <span class=tick-item>Monitoring &amp; Observability</span><span class=tick-sep>·</span>
+    <span class=tick-item>Linux Terminal</span><span class=tick-sep>·</span>
+    <span class=tick-item>Git &amp; GitHub</span><span class=tick-sep>·</span>
+    <span class=tick-item>AWS Core Services</span><span class=tick-sep>·</span>
+    <span class=tick-item>Docker Containers</span><span class=tick-sep>·</span>
+    <span class=tick-item>Kubernetes</span><span class=tick-sep>·</span>
+    <span class=tick-item>Terraform &amp; IaC</span><span class=tick-sep>·</span>
+    <span class=tick-item>CI/CD Pipelines</span><span class=tick-sep>·</span>
+    <span class=tick-item>Azure &amp; GCP</span><span class=tick-sep>·</span>
+    <span class=tick-item>Cloud Security</span><span class=tick-sep>·</span>
+    <span class=tick-item>Monitoring &amp; Observability</span><span class=tick-sep>·</span>
   </div>
 </div>
-
-<!-- TARGET VENDOR CERTIFICATIONS -->
-<section class="certs-section" id="certifications">
-  <div class="section-header">
-    <div class="section-tag">VENDOR CERTIFICATIONS</div>
-    <h2>Industry Certification Pathways</h2>
-    <p>Validate your technical capabilities with recognized industry credentials. Access curated prep resources for each exam.</p>
-  </div>
-  <div class="certs-grid" id="certsGrid"></div>
-</section>
-
-<!-- PWA INSTALL BANNER -->
-<div class="pwa-banner" id="pwaBanner" style="display:none">
-  <div class="pwa-icon-wrap">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-  </div>
-  <div class="pwa-text">
-    <strong>Install CloudOps Roadmap App</strong>
-    <span>Add to your system for quick offline access during study sessions.</span>
-  </div>
-  <button class="btn-primary-sm" id="installBtn">Install App</button>
-  <button class="pwa-close" id="pwaClose" aria-label="Close installation banner">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-  </button>
-</div>
-
-<!-- TOAST NOTIFICATION CONTAINER -->
-<div class="toast-container" id="toastContainer"></div>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <svg class="footer-logo-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M17.5 19.5 20 17l-2.5-2.5"/>
-        <path d="M14 17h6"/>
-        <path d="M6.5 19.5 4 17l2.5-2.5"/>
-        <path d="M4 17h6"/>
-        <path d="M12 4.5v15"/>
-        <path d="M4.5 10.5 12 3l7.5 7.5"/>
-      </svg>
-      <span class="logo-text">CloudOps <span class="logo-accent">Roadmap</span></span>
+<section class=how-section>
+  <div class=section-wrap>
+    <div class=section-eyebrow>HOW IT WORKS</div>
+    <h2 class=section-h2>Three steps. That is it.</h2>
+    <p class=section-sub>No confusion, no searching around. Every lesson follows the same simple flow.</p>
+    <div class=how-grid>
+      <div class=how-card>
+        <div class=how-num>01</div>
+        <h3 class=how-title>Watch the Video Lesson</h3>
+        <p class=how-body>Each phase has a single curated, high-quality video lesson. Watch it at your own pace — no searching, no wasted time.</p>
+      </div>
+      <div class=how-connector aria-hidden=true></div>
+      <div class=how-card>
+        <div class=how-num>02</div>
+        <h3 class=how-title>Practice in a Real Lab</h3>
+        <p class=how-body>Every lesson links to a free interactive practice environment. Run real commands — no credit card or download needed.</p>
+      </div>
+      <div class=how-connector aria-hidden=true></div>
+      <div class=how-card>
+        <div class=how-num>03</div>
+        <h3 class=how-title>Mark Done &amp; Earn Points</h3>
+        <p class=how-body>Click Mark Completed to earn Skill Points, unlock the next phase, and track your progress on your personal dashboard.</p>
+      </div>
     </div>
-    <p class="footer-desc">Designed for aspiring cloud engineers and site reliability specialists. Production-focused curriculum, hands-on practice, and structured tracking.</p>
-    <div class="footer-links">
-      <a href="https://explore.skillbuilder.aws/" target="_blank" rel="noopener">AWS Skill Builder</a>
-      <a href="https://cloudskillsboost.google/" target="_blank" rel="noopener">Google Cloud Skills</a>
-      <a href="https://learn.microsoft.com/" target="_blank" rel="noopener">Microsoft Learn</a>
-      <a href="https://www.cncf.io/" target="_blank" rel="noopener">CNCF Documentation</a>
-      <a href="https://cloudresumechallenge.dev/" target="_blank" rel="noopener">Cloud Resume Project</a>
+  </div>
+</section>
+<section class=analytics-section id=analytics>
+  <div class=section-wrap>
+    <div class=section-eyebrow>YOUR LEARNING DASHBOARD</div>
+    <h2 class=section-h2>Track Your Progress</h2>
+    <p class=section-sub>See your completed lessons, earned points, and how far you have come.</p>
+    <div class=analytics-grid>
+      <div class=metric-card mc-large>
+        <div class=metric-header>
+          <span class=metric-title>Skill Points</span>
+          <span class=metric-pill>Points</span>
+        </div>
+        <div class=metric-value id=totalXP>0</div>
+        <div class=metric-subtitle>Total SP earned so far</div>
+        <div class=mc-glow mc-glow-red></div>
+      </div>
+      <div class=metric-card>
+        <div class=metric-header>
+          <span class=metric-title>Phases Mastered</span>
+          <span class=metric-pill>Phases</span>
+        </div>
+        <div class=metric-value id=totalStarsCount>0</div>
+        <div class=metric-subtitle>of 21 milestones</div>
+      </div>
+      <div class=metric-card>
+        <div class=metric-header>
+          <span class=metric-title>Lessons Done</span>
+          <span class=metric-pill>Steps</span>
+        </div>
+        <div class=metric-value id=completedCount>0</div>
+        <div class=metric-subtitle>Individual modules</div>
+      </div>
+      <div class=metric-card>
+        <div class=metric-header>
+          <span class=metric-title>Study Streak</span>
+          <span class=metric-pill>Days</span>
+        </div>
+        <div class=metric-value id=streakCount>0</div>
+        <div class=metric-subtitle>Days active in a row</div>
+      </div>
+      <div class=metric-card>
+        <div class=metric-header>
+          <span class=metric-title>Certifications</span>
+          <span class=metric-pill>Exams</span>
+        </div>
+        <div class=metric-value id=certCount>0</div>
+        <div class=metric-subtitle>Industry credentials</div>
+      </div>
+    </div>
+    <div class=overall-progress-card>
+      <div class=op-header>
+        <div>
+          <div class=op-title>Overall Roadmap Completion</div>
+          <div class=op-level-name id=levelName>Cloud Foundation</div>
+        </div>
+        <div class=op-percentage id=overallPct>0%</div>
+      </div>
+      <div class=progress-track>
+        <div class=progress-fill id=overallBar style=width:0%></div>
+      </div>
+      <div class=level-status-row>
+        <span class=current-level-tag>Current Level</span>
+        <span class=next-level-tag id=nextLevel>Next: Systems Specialist at 200 SP</span>
+      </div>
+    </div>
+    <div class=reset-wrap>
+      <button class=btn-danger-outline id=resetBtn>Reset All Progress</button>
+    </div>
+  </div>
+</section>
+<section class=roadmap-section id=roadmap>
+  <div class=section-wrap>
+    <div class=section-eyebrow>STEP-BY-STEP ROADMAP</div>
+    <h2 class=section-h2>Cloud Engineering Curriculum</h2>
+    <p class=section-sub>Click any phase to open its lessons, practice labs, and study guide.</p>
+    <div class=roadmap-wrapper>
+      <div class=timeline-track-line aria-hidden=true></div>
+      <div class=phase-nodes-grid id=candyTrailNodes></div>
+    </div>
+  </div>
+</section>
+<div class=stage-drawer-modal id=stageDrawerModal role=dialog aria-modal=true aria-label=Curriculum Phase>
+  <div class=stage-drawer-panel>
+    <div class=drawer-header-bar>
+      <span class=dhb-pill id=drawerHeaderPill>PHASE OVERVIEW</span>
+      <button class=drawer-close-btn onclick=closeStageDrawer() aria-label=Close>Close x</button>
+    </div>
+    <div class=stage-drawer-content id=stageDrawerContent></div>
+  </div>
+</div>
+<section class=certs-section id=certifications>
+  <div class=section-wrap>
+    <div class=section-eyebrow>CAREER CERTIFICATIONS</div>
+    <h2 class=section-h2>Industry Certification Guide</h2>
+    <p class=section-sub>Know which certification to take, when to take it, and which free study resources to use.</p>
+    <div class=certs-grid id=certsGrid></div>
+  </div>
+</section>
+<div class=pwa-banner id=pwaBanner style=display:none>
+  <div class=pwa-badge>OFFLINE APP</div>
+  <div class=pwa-text>
+    <strong>Install CloudOps Roadmap</strong>
+    <span>Add to home screen for quick offline access.</span>
+  </div>
+  <button class=btn-primary btn-sm id=installBtn>Install</button>
+  <button class=pwa-close id=pwaClose aria-label=Dismiss>Dismiss</button>
+</div>
+<div class=toast-container id=toastContainer></div>
+<footer class=footer>
+  <div class=section-wrap footer-inner>
+    <div class=footer-top>
+      <div class=brand footer-brand>
+        <span class=brand-mark>CLOUDOPS</span>
+        <span class=brand-name>Roadmap</span>
+      </div>
+      <p class=footer-tagline>A free, structured path to cloud engineering. Practice in real environments, track your growth.</p>
+    </div>
+    <div class=footer-links>
+      <a href=https://explore.skillbuilder.aws/ target=_blank rel=noopener>AWS Training</a>
+      <a href=https://cloudskillsboost.google/ target=_blank rel=noopener>Google Cloud Skills</a>
+      <a href=https://learn.microsoft.com/ target=_blank rel=noopener>Microsoft Learn</a>
+      <a href=https://www.cncf.io/ target=_blank rel=noopener>CNCF Docs</a>
+      <a href=https://cloudresumechallenge.dev/ target=_blank rel=noopener>Cloud Resume Project</a>
     </div>
   </div>
 </footer>
-
-<script src="app.js"></script>
+<script src=app.js></script>
+<script>
+  const hamburger = document.getElementById('navHamburger');
+  const mobileMenu = document.getElementById('navMobileMenu');
+  if (hamburger) {
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+  }
+  function closeMobileMenu() {
+    if (hamburger) hamburger.classList.remove('open');
+    if (mobileMenu) mobileMenu.classList.remove('open');
+  }
+  // Sync float XP card with totalXP
+  const floatXPEl = document.getElementById('floatXP');
+  const totalXPEl = document.getElementById('totalXP');
+  if (floatXPEl && totalXPEl) {
+    new MutationObserver(() => { floatXPEl.textContent = totalXPEl.textContent; })
+      .observe(totalXPEl, { childList: true, characterData: true, subtree: true });
+  }
+</script>
 </body>
 </html>

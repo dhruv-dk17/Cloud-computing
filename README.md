@@ -7,7 +7,7 @@
 - **Structured Curriculum Path** — 7 progressive phases covering foundational operating systems through enterprise architecture.
 - **Skill Mastery Analytics** — Real-time tracking of completed modules, skill points, and study streaks.
 - **Vendor Certification Pathways** — Curated preparation materials for AWS, Azure, GCP, CNCF (CKA), and Linux Foundation exams.
-- **Hands-On Lab Integration** — Interactive browser sandboxes for Linux, Docker, Kubernetes, and AWS/GCP/Azure free tiers.
+- **Hands-On Lab Integration** — Interactive browser practice labs for Linux, Docker, Kubernetes, and AWS/GCP/Azure free tiers.
 - **Progressive Web App (PWA)** — Offline-first architecture installable on desktop and mobile environments.
 
 ## Curriculum Phases
