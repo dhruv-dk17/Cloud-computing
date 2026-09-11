@@ -10,7 +10,7 @@
   <link rel=icon href=icon.svg type=image/svg+xml />
   <link rel=preconnect href=https://fonts.googleapis.com />
   <link rel=preconnect href=https://fonts.gstatic.com crossorigin />
-  <link href=https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap rel=stylesheet />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
   <script src=https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js defer></script>
   <script src=https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js defer></script>
   <link rel=stylesheet href=style.css />
@@ -72,14 +72,6 @@
   </div>
   <div class=hero-right>
     <img src="https://images.unsplash.com/photo-1522383225653-ed111181a951?auto=format&fit=crop&w=1200&q=80" alt="Beautiful glowing cherry blossoms at night" class=hero-img />
-    <div class="float-card float-card-1">
-      <div class=fc-val>21</div>
-      <div class=fc-label>Learning Phases</div>
-    </div>
-    <div class=float-card float-card-2>
-      <div class=fc-val id=floatXP>0</div>
-      <div class=fc-label>Skill Points Earned</div>
-    </div>
   </div>
 </section>
 <div class=ticker-wrap aria-hidden=true>
@@ -137,67 +129,43 @@
     <div class=section-eyebrow>YOUR LEARNING DASHBOARD</div>
     <h2 class=section-h2>Track Your Progress</h2>
     <p class=section-sub>See your completed lessons, earned points, and how far you have come.</p>
-    <div class=analytics-grid>
-      <div class=metric-card mc-large>
-        <div class=metric-header>
-          <span class=metric-title>Skill Points</span>
-          <span class=metric-pill>Points</span>
+    <div class="hud-container">
+      <div class="hud-metrics">
+        <div class="hud-stat">
+          <div class="hud-label">Skill Points</div>
+          <div class="hud-value" id="xpCount">0</div>
         </div>
-        <div class=metric-value id=totalXP>0</div>
-        <div class=metric-subtitle>Total SP earned so far</div>
-        <div class=mc-glow mc-glow-red></div>
-      </div>
-      <div class=metric-card>
-        <div class=metric-header>
-          <span class=metric-title>Phases Mastered</span>
-          <span class=metric-pill>Phases</span>
+        <div class="hud-stat">
+          <div class="hud-label">Phases Mastered</div>
+          <div class="hud-value" id="totalStarsCount">0</div>
         </div>
-        <div class=metric-value id=totalStarsCount>0</div>
-        <div class=metric-subtitle>of 21 milestones</div>
-      </div>
-      <div class=metric-card>
-        <div class=metric-header>
-          <span class=metric-title>Lessons Done</span>
-          <span class=metric-pill>Steps</span>
+        <div class="hud-stat">
+          <div class="hud-label">Lessons Done</div>
+          <div class="hud-value" id="completedCount">0</div>
         </div>
-        <div class=metric-value id=completedCount>0</div>
-        <div class=metric-subtitle>Individual modules</div>
-      </div>
-      <div class=metric-card>
-        <div class=metric-header>
-          <span class=metric-title>Study Streak</span>
-          <span class=metric-pill>Days</span>
+        <div class="hud-stat">
+          <div class="hud-label">Study Streak</div>
+          <div class="hud-value" id="streakCount">0</div>
         </div>
-        <div class=metric-value id=streakCount>0</div>
-        <div class=metric-subtitle>Days active in a row</div>
-      </div>
-      <div class=metric-card>
-        <div class=metric-header>
-          <span class=metric-title>Certifications</span>
-          <span class=metric-pill>Exams</span>
+        <div class="hud-stat">
+          <div class="hud-label">Certifications</div>
+          <div class="hud-value" id="certCount">0</div>
         </div>
-        <div class=metric-value id=certCount>0</div>
-        <div class=metric-subtitle>Industry credentials</div>
       </div>
-    </div>
-    <div class=overall-progress-card>
-      <div class=op-header>
-        <div>
-          <div class=op-title>Overall Roadmap Completion</div>
-          <div class=op-level-name id=levelName>Cloud Foundation</div>
+      
+      <div class="hud-progress-wrapper">
+        <div class="hp-header">
+          <span class="hp-level" id="levelName">Cloud Foundation</span>
+          <span class="hp-pct" id="overallPct">0%</span>
         </div>
-        <div class=op-percentage id=overallPct>0%</div>
-      </div>
-      <div class=progress-track>
-        <div class=progress-fill id=overallBar style=width:0%></div>
-      </div>
-      <div class=level-status-row>
-        <span class=current-level-tag>Current Level</span>
-        <span class=next-level-tag id=nextLevel>Next: Systems Specialist at 200 SP</span>
+        <div class="hp-track">
+          <div class="hp-laser" id="overallBar" style="width:0%"></div>
+        </div>
+        <div class="hp-footer" id="nextLevel">Next: Systems Specialist at 200 SP</div>
       </div>
     </div>
     <div class=reset-wrap>
-      <button class=btn-danger-outline id=resetBtn>Reset All Progress</button>
+      <button class="btn-ghost" id="resetBtn">Reset All Progress</button>
     </div>
   </div>
 </section>
@@ -207,8 +175,7 @@
     <h2 class=section-h2>Cloud Engineering Curriculum</h2>
     <p class=section-sub>Click any phase to open its lessons, practice labs, and study guide.</p>
     <div class=roadmap-wrapper>
-      <div class=timeline-track-line aria-hidden=true></div>
-      <div class=phase-nodes-grid id=candyTrailNodes></div>
+      <div class=tree-timeline id=candyTrailNodes></div>
     </div>
   </div>
 </section>

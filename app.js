@@ -1147,37 +1147,38 @@ function renderRoadmap() {
     const isCurrent = stage.id === currentActiveStageId;
     const isCompleted = stats.pct === 100;
 
-    const card = document.createElement('div');
-    card.className = `phase-card ${stats.isUnlocked ? 'unlocked' : 'locked'} ${isCompleted ? 'completed' : ''} ${isCurrent ? 'current' : ''}`;
-    card.dataset.stageId = stage.id;
+    const node = document.createElement('div');
+    node.className = `tree-node ${stats.isUnlocked ? 'unlocked' : 'locked'} ${isCompleted ? 'completed' : ''} ${isCurrent ? 'current' : ''}`;
+    node.dataset.stageId = stage.id;
+    if (stats.isUnlocked) {
+      node.onclick = () => openStageDrawer(stage.id);
+      node.style.cursor = 'pointer';
+    }
 
     let statusLabel = 'Locked';
     if (isCompleted) statusLabel = 'Completed';
     else if (isCurrent) statusLabel = 'In Progress';
     else if (stats.isUnlocked) statusLabel = 'Available';
 
-    card.innerHTML = `
-      <div class="phase-node-indicator">
-        ${isCompleted ? 'DONE' : (stats.isUnlocked ? ('0' + stage.id) : 'LOCKED')}
-      </div>
-      <div class="phase-content-card" onclick="openStageDrawer(${stage.id})">
-        <div class="phase-header-row">
-          <span class="phase-tag">PHASE 0${stage.id} · ${stage.dur}</span>
-          <span class="phase-status-badge">${statusLabel}</span>
+    node.innerHTML = `
+      <div class="tree-marker"></div>
+      <div class="tree-content">
+        <div class="tree-header">
+          <span class="tree-phase-num">Phase 0${stage.id}</span>
+          <span class="tree-status">${statusLabel}</span>
         </div>
-        <h3 class="phase-title">${stage.title}</h3>
-        <p class="phase-tagline">${stage.tagline}</p>
-        <div class="phase-meta-row">
-          <span>${stats.done} of ${stats.total} Lessons Finished</span>
-          <div class="phase-mini-bar">
-            <div class="pmb-fill" style="width: ${stats.pct}%"></div>
+        <h3 class="tree-title">${stage.title}</h3>
+        <p class="tree-tagline">${stage.tagline}</p>
+        <div class="tree-stats">
+          <span class="tree-progress-text">${stats.done}/${stats.total} Lessons</span>
+          <div class="tree-bar-wrap">
+            <div class="tree-bar-fill" style="width: ${stats.pct}%"></div>
           </div>
-          <span>+${stage.xpReward} SP</span>
+          <span class="tree-sp">+${stage.xpReward} SP</span>
         </div>
       </div>
     `;
-
-    container.appendChild(card);
+    container.appendChild(node);
   });
 }
 
@@ -1527,43 +1528,57 @@ function renderCerts() {
   const grid = document.getElementById('certsGrid');
   if (!grid) return;
 
-  grid.innerHTML = CERTS.map(cert => {
+  grid.innerHTML = '';
+  CERTS.forEach(cert => {
     const isEarned = state.earnedCerts.includes(cert.id);
-    return `
-      <div class="cert-card ${isEarned ? 'earned' : ''}">
-        <div>
-          <div class="cert-top-row">
-            <span class="cert-provider">${cert.provider}</span>
-            <span class="cert-timing-badge">${cert.recommendedWhen}</span>
-          </div>
-          <h3 class="cert-name">${cert.name}</h3>
-          <p class="cert-desc">${cert.desc}</p>
-          
-          <div class="cert-role-box">
-            <strong>Target Career Roles:</strong>
-            <span>${cert.targetRoles}</span>
-          </div>
-
-          <div class="cert-meta-pills">
-            <span class="cert-pill">${cert.difficulty}</span>
-            <span class="cert-pill">${cert.studyTime}</span>
-            <span class="cert-pill">${cert.prereq}</span>
+    
+    const row = document.createElement('div');
+    row.className = `cert-row ${isEarned ? 'earned' : ''}`;
+    
+    row.innerHTML = `
+      <div class="cert-row-main">
+        <div class="cert-row-left">
+          <div class="cert-row-icon">${isEarned ? '✓' : '✧'}</div>
+          <div class="cert-row-info">
+            <h3 class="cert-row-title">${cert.name}</h3>
+            <p class="cert-row-vendor">${cert.provider || cert.vendor} · ${cert.recommendedWhen || cert.level}</p>
           </div>
         </div>
-
-        <div>
-          <div class="cert-links">
-            ${cert.links.map(l => `<a class="cert-link ${l.type}" href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`).join('')}
-          </div>
-          <button class="cert-mark-btn ${isEarned ? 'earned' : ''}" data-cert-id="${cert.id}">
-            ${isEarned ? 'Status: Claimed & Verified (+200 SP)' : 'Mark as Passed (+200 SP)'}
+        <div class="cert-row-right">
+          <button class="cert-row-btn ${isEarned ? 'btn-earned' : 'btn-ghost'}" data-cert-id="${cert.id}">
+            ${isEarned ? 'Earned' : 'Mark Passed'}
           </button>
         </div>
       </div>
+      <div class="cert-row-details">
+        <p class="cert-row-desc">${cert.desc}</p>
+        <div class="cert-meta-grid">
+          <div class="cert-meta-item">
+            <span class="cert-meta-label">Target Roles</span>
+            <span class="cert-meta-val">${cert.targetRoles}</span>
+          </div>
+          <div class="cert-meta-item">
+            <span class="cert-meta-label">Study Time</span>
+            <span class="cert-meta-val">${cert.studyTime}</span>
+          </div>
+          <div class="cert-meta-item">
+            <span class="cert-meta-label">Prerequisites</span>
+            <span class="cert-meta-val">${cert.prereq}</span>
+          </div>
+        </div>
+        <div class="cert-links">
+          ${(cert.links || []).map(link => `
+            <a href="${link.url}" target="_blank" rel="noopener" class="cert-link-btn ${link.type === 'primary' ? 'primary-link' : 'secondary-link'}">
+              ${link.label}
+            </a>
+          `).join('')}
+        </div>
+      </div>
     `;
-  }).join('');
+    grid.appendChild(row);
+  });
 
-  grid.querySelectorAll('.cert-mark-btn').forEach(btn => {
+  grid.querySelectorAll('.cert-row-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const id = btn.dataset.certId;
       const idx = state.earnedCerts.indexOf(id);
